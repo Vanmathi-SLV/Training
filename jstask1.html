@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="col">
+        <input type="text" class="form-control" id="user" placeholder="first number"/></br>
+        <input type="text" class="form-control" id="user" placeholder="second number"/>
+     <script>
+        // 1. Check if a number is positive or negative
+function checkPositiveNegative() {
+    const num = parseFloat(("Enter a number:"));
+    if (num > 0) {
+        console.log("The number is positive.");
+    } else if (num < 0) {
+        console.log("The number is negative.");
+    } else {
+        console.log("The number is zero.");
+    }
+}
+
+// 2. Print the weekday based on a number between 1-7
+function printWeekday() {
+    const num = parseInt(("Enter a number between 1 and 7:"));
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    if (num >= 1 && num <= 7) {
+        console.log("The day is:", days[num - 1]);
+    } else {
+        console.log("Invalid input. Please enter a number between 1 and 7.");
+    }
+}
+
+// 3. Print the number of days in a month
+function printDaysInMonth() {
+    const month = parseInt(("Enter a month number (1-12):"));
+    const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if (month >= 1 && month <= 12) {
+        console.log("The number of days in month", month, "is:", daysInMonth[month - 1]);
+    } else {
+        console.log("Invalid month number. Please enter a number between 1 and 12.");
+    }
+}
+
+// 4. Check if an alphabet is a vowel
+function checkVowel() {
+    const char = ("Enter a single alphabet:").toLowerCase();
+    if ("aeiou".includes(char)) {
+        console.log(char, "is a vowel.");
+    } else {
+        console.log(char, "is not a vowel.");
+    }
+}
+
+// 5. Check if a year is a leap year
+function checkLeapYear() {
+    const year = parseInt(("Enter a year:"));
+    if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+        console.log(year, "is a leap year.");
+    } else {
+        console.log(year, "is not a leap year.");
+    }
+}
+
+// 6. Check if the shape is a square or rectangle
+function checkSquareOrRectangle() {
+    const length = parseFloat(("Enter the length:"));
+    const breadth = parseFloat(("Enter the breadth:"));
+    if (length === breadth) {
+        console.log("The shape is a square.");
+    } else {
+        console.log("The shape is a rectangle.");
+    }
+}
+
+// 7. Calculate electricity bill
+function calculateElectricityBill() {
+    const units = parseInt(("Enter the number of units consumed:"));
+    let bill = 0;
+
+    if (units <= 100) {
+        bill = 0;
+    } else if (units <= 150) {
+        bill = (units - 100) * 4;
+    } else if (units <= 250) {
+        bill = 50 * 4 + (units - 150) * 7.5;
+    } else {
+        bill = 50 * 4 + 100 * 7.5 + (units - 250) * 10;
+    }
+
+    const surcharge = bill * 0.2;
+    const totalBill = bill + surcharge;
+    console.log("The total electricity bill is: Rs.", totalBill.toFixed(2));
+}
+
+// Call each function to test
+checkPositiveNegative();
+printWeekday();
+printDaysInMonth();
+checkVowel();
+checkLeapYear();
+checkSquareOrRectangle();
+calculateElectricityBill();
+
+            
+         
+     </script>
+    </div>
+</body>
+</html>

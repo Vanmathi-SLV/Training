@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="row mt-4">
+        <div class="col">Events</div>
+        <div class="col">
+            <ul>
+                <li>OnClick</li>
+                <li>OnMouseOver</li>
+                <li>OnMouseOut</li>
+                <li>OnChange</li>
+                <li>OnLoad</li>
+                <li>OnKeyPress/OnKeyDown/OnKeyUp</li>
+                <li>OnSubmit</li>
+            </ul>
+            <div>
+                <img src="" onmouseover="eventEx()"/><br>
+                <input type="text" onkeyup="printTxtBxData()" id="evtTxtData"/><br>
+                <select id="stateVal" onChange="printselectBoxData()">
+                    <option>--Select--</option>
+                    <option>TN</option>
+                    <option>KL</option>
+                    <option>AP</option>
+                    <option>KA</option>
+                </select>
+            </div>
+            <script>
+                function eventEx(){
+                    alert("Event called....");
+                }
+                function printTxtBxData(){
+                    let txtData=document.getElementById('evtTxtData').value;
+                    console.log(txtData);
+                }
+                function printselectBoxData(){
+                    let sltBxData=document.getElementById("stateVal").value;
+                    console.log(sltBxData);
+                }
+            </script>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col">
+            Document Object<br>
+
+            <ol>
+                <li>getElementById</li>
+                <li>getElementByName</li>
+                <li>getElementByTagName</li>
+                <li>getElementByClassName</li>
+            </ol>
+        </div>
+        <div class="col">
+
+            <input type="text" class="form-control" id="user" placeholder="User"/><br>
+            <input type="password" class="form-control" id="pswd" placeholder="Password"/><br>
+            <input type="radio" name="gender" value="Male" class="form-check-input"/>Male
+            <input type="radio" name="gender" value="Female" class="form-check-input"/>Female <br>
+            <button type="button" class="btn btn-primary" onClick="getLgnUser()">Login</button>
+
+            <style>
+                .txtClr{
+                    color:red;
+                }
+            </style>
+            <script>
+                function getLgnUser(){
+                    let user=document.getElementById('user').value;
+                    let pswd=document.getElementById('pswd').value;
+
+                    console.log(user+" "+pswd);
+
+                    console.log(document.getElementsByTagName('input'));
+                    console.log(document.getElementsByClassName('txtClr'));
+                    console.log(document.getElementsByName('gender'));
+                }
+            </script>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">Calculator</div>
+        <div class="col">
+            <input type="number" name="num1" id="num1" placeholder="Number 1" class="form-control"/><br>
+            <input type="number" name="num2" id="num2" placeholder="Number 2" class="form-control"/><br>
+            <input type="text" id="calcResult" class="form-control" placeholder="Result" disabled/><br>
+            <p id="calcResult2"></p><br>
+            <button type="button" class="btn btn-success" onclick="calcAdd()">ADD</button>
+            <button type="button" class="btn btn-success" onclick="calcSub()">SUB</button>
+            
+            <script>
+                function calcAdd(){
+                    let num1 = Number(document.getElementById('num1').value);
+                    let num2 = Number(document.getElementById('num2').value);
+                    let result = num1 + num2;
+                    document.getElementById('calcResult').value = result;
+                }
+                function calcSub(){
+                    let num1 = Number(document.getElementById('num1').value);
+                    let num2 = Number(document.getElementById('num2').value);
+                    let result = num1 - num2;
+                    document.getElementById('calcResult2').innerHTML = "The Result is " + result;
+                }
+            </script>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">Calculator</div>
+        <div class="col">
+            <input type="number" name="num1" id="num3" placeholder="Number 1" class="form-control"/><br>
+            <input type="number" name="num2" id="num4" placeholder="Number 2" class="form-control"/><br>
+            <input type="text" id="calcMulDivResult" class="form-control" placeholder="Result" disabled/><br>
+            <p id="calcMulDivResult2"></p><br>
+            <button type="button" class="btn btn-success" onclick="calcMulti()">MULTI</button>
+            <button type="button" class="btn btn-success" onclick="calcDiv()">DIV</button>
+            
+            <script>
+                function calcMulti(){
+                    let num1 = Number(document.getElementById('num3').value);
+                    let num2 = Number(document.getElementById('num4').value);
+                    let result = num1 * num2;
+                    document.getElementById('calcMulDivResult').value = result;
+                }
+                function calcDiv(){
+                    let num1 = Number(document.getElementById('num3').value);
+                    let num2 = Number(document.getElementById('num4').value);
+                    let result = num1 / num2;
+                    document.getElementById('calcMulDivResult2').innerHTML = "The Result is " + result;
+                }
+            </script>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            conditions <br>
+            <ul>
+                <li>If</li>
+                <li>If-else</li>
+                <li>If-else Ladder</li>
+                <li>Nested If</li>
+                <li>Switch</li>
+            </ul>
+        </div>
+        <div class="col">
+            <input type="number" id="ageCdn" name="ageCdn" class="form-control" onkeyup="conditionsEx()" placeholder="Enter the Age"/>
+            
+            <p id="ageCdnResult"></p>
+            <script>
+                function conditionsEx(){
+
+                    let age = Number(document.getElementById('ageCdn').value);
+                    let result = "";
+                    // + - * / % > < >= <= == != && || !
+                    if(age > 18){
+                        if(age > 60)
+                            result = "Senior Citizen";
+                        else
+                            result = "You're Major";
+                    }else if(age > 10){
+                        result = "Minor";
+                    }else if(age > 5){
+                        result = "Kid";
+                    }else if(age > 0){
+                        result = "Kolanthai";
+                    }else{
+                        result = "Porakave ila";
+                    }
+                    document.getElementById('ageCdnResult').innerHTML = result;
+                }
+            </script>
+        </div>
+        <div class="col">
+            Is Spl Char?
+            <select id="splCdn" class="form-select">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+            <button type="button" class="btn btn-warning" onclick="checkSplCdn()">Check Criteria</button>
+            <p id="splCdnMsg"></p>
+            <script>
+                function checkSplCdn(){
+                    let splCdn = document.getElementById('splCdn').value;
+                    let age = Number(document.getElementById('ageCdn').value);
+                    let result = "";
+                    /*
+                    AND         OR      NOT
+                    0 0 0       0 0 0   0 1
+                    0 1 0       0 1 1   1 0
+                    1 0 0       1 0 1
+                    1 1 1       1 1 1
+
+                    */
+                    if(splCdn == "Yes" && age > 60){
+                        result = "Senior Citizen with Challenge";
+                    }else if( splCdn == "No" && age > 60){
+                        result = "Senior Citizen without Challenge"
+                    }else if( splCdn == "Yes"){
+                        result = "With Challenge"
+                    }else{
+                        result = "Without Challenge"
+                    }
+                    document.getElementById('splCdnMsg').innerHTML = result;
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
