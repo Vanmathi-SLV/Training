@@ -9,11 +9,14 @@
 </head>
 <body>
     <div class="col">
-        <input type="text" class="form-control" id="user" placeholder="first number"/></br>
-        <input type="text" class="form-control" id="user" placeholder="second number"/>
+    <div class="row mt-4">
+        <input type="number" class="form-control" id="num" placeholder="Number1"/></br>
+        <input type="number" class="form-control" id="num" placeholder="Number2"/></br>
+        <button type="button" class="btn btn-primary" onClick="checkPositiveNegative()">Check</button>
+    </div>
      <script>
         // 1. Check if a number is positive or negative
-function checkPositiveNegative() {
+    function checkPositiveNegative() {
     const num = parseFloat(("Enter a number:"));
     if (num > 0) {
         console.log("The number is positive.");
@@ -37,7 +40,7 @@ function printWeekday() {
 
 // 3. Print the number of days in a month
 function printDaysInMonth() {
-    const month = parseInt(("Enter a month number (1-12):"));
+    const month = parseInt(prompt("Enter a month number (1-12):"));
     const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     if (month >= 1 && month <= 12) {
         console.log("The number of days in month", month, "is:", daysInMonth[month - 1]);
@@ -48,17 +51,23 @@ function printDaysInMonth() {
 
 // 4. Check if an alphabet is a vowel
 function checkVowel() {
-    const char = ("Enter a single alphabet:").toLowerCase();
-    if ("aeiou".includes(char)) {
+    const char = prompt("Enter a single alphabet:").toLowerCase();
+    switch (char.toLowerCase()) {
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
         console.log(char, "is a vowel.");
-    } else {
+        break;
+    default:
         console.log(char, "is not a vowel.");
-    }
+}
 }
 
 // 5. Check if a year is a leap year
 function checkLeapYear() {
-    const year = parseInt(("Enter a year:"));
+    const year = parseInt(prompt("Enter a year:"));
     if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
         console.log(year, "is a leap year.");
     } else {
@@ -68,8 +77,8 @@ function checkLeapYear() {
 
 // 6. Check if the shape is a square or rectangle
 function checkSquareOrRectangle() {
-    const length = parseFloat(("Enter the length:"));
-    const breadth = parseFloat(("Enter the breadth:"));
+    const length = parseFloat(prompt("Enter the length:"));
+    const breadth = parseFloat(prompt("Enter the breadth:"));
     if (length === breadth) {
         console.log("The shape is a square.");
     } else {
@@ -79,7 +88,7 @@ function checkSquareOrRectangle() {
 
 // 7. Calculate electricity bill
 function calculateElectricityBill() {
-    const units = parseInt(("Enter the number of units consumed:"));
+    const units = parseInt(prompt("Enter the number of units consumed:"));
     let bill = 0;
 
     if (units <= 100) {
