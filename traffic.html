@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic signal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* Base style for the intersection */
+        .road-container {
+            display: grid;
+            grid-template-columns: 1fr 100px 100px 1fr;
+            grid-template-rows: 1fr 100px 100px 1fr;
+            gap: 5px;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Road styles */
+        .road {
+            background-color: #333;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .vertical-road {
+            grid-column: 2 / span 2;
+            background-color: #333;
+        }
+
+        .horizontal-road {
+            grid-row: 2 / span 2;
+            background-color: #333;
+        }
+
+        /* Individual lane styles */
+        .lane {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: gray;
+            border: 2px dashed white;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Signal boxes */
+        .signal {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Positioning signal boxes */
+        #NWdiv { grid-area: 1 / 1; }
+        #NEdiv { grid-area: 1 / 4; }
+        #SWdiv { grid-area: 4 / 1; }
+        #SEdiv { grid-area: 4 / 4; }
+        #WTdiv { grid-area: 2 / 1; }
+        #WBdiv { grid-area: 3 / 1; }
+        #ETdiv { grid-area: 2 / 4; }
+        #EBdiv { grid-area: 3 / 4; }
+
+        /* Button styles */
+        .control-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Road intersection grid -->
+    <div class="road-container">
+        <!-- Corner signals -->
+        <div id="NWdiv" class="signal lane">NW</div>
+        <div id="NEdiv" class="signal lane">NE</div>
+        <div id="SWdiv" class="signal lane">SW</div>
+        <div id="SEdiv" class="signal lane">SE</div>
+
+        <!-- Road lanes -->
+        <div class="road horizontal-road">
+            <div id="WTdiv" class="signal lane">WT</div>
+            <div id="WBdiv" class="signal lane">WB</div>
+        </div>
+        <div class="road vertical-road">
+            <div id="ETdiv" class="signal lane">ET</div>
+            <div id="EBdiv" class="signal lane">EB</div>
+        </div>
+    </div>
+
+    <!-- Control buttons -->
+    <div class="control-buttons">
+        <button type="button" class="btn btn-primary" onclick="north()">North</button>
+        <button type="button" class="btn btn-primary" onclick="south()">South</button>
+        <button type="button" class="btn btn-primary" onclick="east()">East</button>
+        <button type="button" class="btn btn-primary" onclick="west()">West</button>
+        <button type="button" class="btn btn-success" onclick="setDefault()">Reset</button>
+    </div>
+
+    <script>
+        // Function to set default color (gray)
+        function setDefault() {
+            document.getElementById("NWdiv").style.backgroundColor = "gray";
+            document.getElementById("NEdiv").style.backgroundColor = "gray";
+            document.getElementById("WTdiv").style.backgroundColor = "gray";
+            document.getElementById("ETdiv").style.backgroundColor = "gray";
+            document.getElementById("WBdiv").style.backgroundColor = "gray";
+            document.getElementById("EBdiv").style.backgroundColor = "gray";
+            document.getElementById("SWdiv").style.backgroundColor = "gray";
+            document.getElementById("SEdiv").style.backgroundColor = "gray";
+        }
+
+        // Function to change color for north sections (NW, NE)
+        function north() {
+            document.getElementById("NWdiv").style.backgroundColor = "green";
+            document.getElementById("NEdiv").style.backgroundColor = "green";
+            document.getElementById("WTdiv").style.backgroundColor = "red";
+            document.getElementById("ETdiv").style.backgroundColor = "red";
+            document.getElementById("WBdiv").style.backgroundColor = "red";
+            document.getElementById("EBdiv").style.backgroundColor = "red";
+            document.getElementById("SWdiv").style.backgroundColor = "red";
+            document.getElementById("SEdiv").style.backgroundColor = "red";
+        }
+
+        // Function to change color for south sections (SW, SE)
+        function south() {
+            document.getElementById("SWdiv").style.backgroundColor = "green";
+            document.getElementById("SEdiv").style.backgroundColor = "green";
+            document.getElementById("NWdiv").style.backgroundColor = "red";
+            document.getElementById("NEdiv").style.backgroundColor = "red";
+            document.getElementById("WTdiv").style.backgroundColor = "red";
+            document.getElementById("ETdiv").style.backgroundColor = "red";
+            document.getElementById("WBdiv").style.backgroundColor = "red";
+            document.getElementById("EBdiv").style.backgroundColor = "red";
+        }
+
+        // Function to change color for east sections (ET, EB)
+        function east() {
+            document.getElementById("ETdiv").style.backgroundColor = "green";
+            document.getElementById("EBdiv").style.backgroundColor = "green";
+            document.getElementById("NWdiv").style.backgroundColor = "red";
+            document.getElementById("NEdiv").style.backgroundColor = "red";
+            document.getElementById("WTdiv").style.backgroundColor = "red";
+            document.getElementById("WBdiv").style.backgroundColor = "red";
+            document.getElementById("SWdiv").style.backgroundColor = "red";
+            document.getElementById("SEdiv").style.backgroundColor = "red";
+        }
+
+        // Function to change color for west sections (WT, WB)
+        function west() {
+            document.getElementById("WTdiv").style.backgroundColor = "green";
+            document.getElementById("WBdiv").style.backgroundColor = "green";
+            document.getElementById("NWdiv").style.backgroundColor = "red";
+            document.getElementById("NEdiv").style.backgroundColor = "red";
+            document.getElementById("ETdiv").style.backgroundColor = "red";
+            document.getElementById("EBdiv").style.backgroundColor = "red";
+            document.getElementById("SWdiv").style.backgroundColor = "red";
+            document.getElementById("SEdiv").style.backgroundColor = "red";
+        }
+    </script>
+</body>
+</html>

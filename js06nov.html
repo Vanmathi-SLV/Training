@@ -29,7 +29,7 @@
             <div class="col"><button type="button" class="btn btn-primary"onclick="fan1Switch()">Fan 1</button></div>
             <div class="col"><button type="button" class="btn btn-primary" onclick="fan2Switch()">Fan 2</button></div>
             <div class="col"><button type="button" class="btn btn-primary" onClick="tvSwitch()">TV</button></div>
-            <div class="col"><button type="button" class="btn btn-success">Main Line</button></div>
+            <div class="col"><button type="button" class="btn btn-success" onClick="mainLine()">Main Line</button></div>
         </div>
     </div>
     <script>
@@ -41,6 +41,7 @@
         var isFan1On=false;
         var isFan2On=false;
         var isTvOn=false
+        var anyDeviceOn=false;
         function getInputs(){
             light = document.getElementById('lightDiv');
             fan1 = document.getElementById('fan1Div');
@@ -90,23 +91,21 @@
 
     // If any device is on, turn everything off
     if (anyDeviceOn) {
-        light.style.backgroundColor = "grey";
-        fan1.style.backgroundColor = "grey";
-        fan2.style.backgroundColor = "grey";
-        tv.style.backgroundColor = "grey";
+        light.style.backgroundColor = "red";
+        fan1.style.backgroundColor = "red";
+        fan2.style.backgroundColor = "red";
+        tv.style.backgroundColor = "red";
         isLightOn = isFan1On = isFan2On = isTvOn = false;
     } 
     // If all devices are off, turn everything on
     else {
-        light.style.backgroundColor = "green";
-        fan1.style.backgroundColor = "green";
-        fan2.style.backgroundColor = "green";
-        tv.style.backgroundColor = "green";
+        light.style.backgroundColor = "blue";
+        fan1.style.backgroundColor = "blue";
+        fan2.style.backgroundColor = "blue";
+        tv.style.backgroundColor = "blue";
         isLightOn = isFan1On = isFan2On = isTvOn = true;
     }
-}
-
-        
+} 
     </script>
     <style>
         #lightDiv{
@@ -118,7 +117,7 @@
             width:200px;
             height: 200px;
             border-radius: 100px;
-            background-color: red;
+            background-color: rgb(201, 190, 190);
         }
         #tvDiv{
             width:200px;

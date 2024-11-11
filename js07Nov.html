@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traffic Signal Signal</title>
+    <title>Traffic Signal</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         /* Basic styling for the intersection */
         .intersection {
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            grid-template-rows: 1fr 2fr 1fr;
+          /*  grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 1fr 2fr 1fr;*/
             gap: 10px;
             height: 300px;
             width: 300px;
@@ -39,7 +39,7 @@
 <body>
 
 <div class="container text-center">
-    <h1>Traffic Signal Simulation</h1>
+    <h1>Traffic Signal Lights</h1>
     <div class="intersection">
         <!-- North Signal -->
         <div class="signal north" id="northSignal">N</div>
@@ -63,10 +63,8 @@
     </div>
 </div>
 
-<!-- JavaScript code to change signals -->
 <script>
     function changeSignal(direction) {
-        // Reset all signals to grey
         document.getElementById('northSignal').style.backgroundColor = 'grey';
         document.getElementById('southSignal').style.backgroundColor = 'grey';
         document.getElementById('eastSignal').style.backgroundColor = 'grey';
