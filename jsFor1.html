@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range of Numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f4f6;
+        }
+        .container {
+            text-align: center;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            font-size: 1rem;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Enter Two Numbers</h2>
+    <input type="number" id="start" placeholder="Start Number">
+    <input type="number" id="end" placeholder="End Number">
+    <button onclick="showRange()">Show Range</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function showRange() {
+        const start = parseInt(document.getElementById('start').value);
+        const end = parseInt(document.getElementById('end').value);
+        const resultDiv = document.getElementById('result');
+        
+        if (isNaN(start) || isNaN(end)) {
+            resultDiv.innerText = "Please enter valid numbers.";
+            return;
+        }
+        
+        let output = '';
+        for (let i = start; i <= end; i++) {
+            output += i + ' ';
+        }
+        resultDiv.innerText = output;
+    }
+</script>
+
+</body>
+</html>
+
+</body>
+</html>

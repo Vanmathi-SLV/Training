@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row mt-4">
+        <div class="col"> 5 multiplication table</div>
+        <div class="col">
+            <input type="number" id="Multiple" placeholder=" enter the number">
+            <button onclick="MultipleTable()" class="btn btn-info"> show range </button>
+            <p id="forMultiResult"></p>
+            <script>
+                function MultipleTable() {
+                    let Multiple = Number(document.getElementById('Multiple').value);
+                    let result = "";
+                    
+                    for (let num = 1; num <= 10; num++){
+                        result += '5*' + num + '=' + (5*num) + '<br>';
+
+                    }
+
+                    
+                    document.getElementById('forMultiResult').innerHTML = result;
+                }
+                
+            </script>
+        </div>
+    </div>
+</body>
+</html>

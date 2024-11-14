@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f4f6;
+        }
+        .container {
+            text-align: center;
+            width: 300px;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 90%;
+            font-size: 1rem;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Multiplication Table Generator</h2>
+    <input type="number" id="number" placeholder="Enter a number">
+    <input type="number" id="range" placeholder="Enter the range">
+    <button onclick="generateTable()">Generate Table</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function generateTable() {
+        const number = parseInt(document.getElementById('number').value);
+        const range = parseInt(document.getElementById('range').value);
+        const resultDiv = document.getElementById('result');
+        
+        if (isNaN(number) || isNaN(range)) {
+            resultDiv.innerText = "Please enter valid numbers.";
+            return;
+        }
+        
+        let output = '';
+        for (let i = 1; i <= range; i++) {
+            output += `${number} * ${i} = ${number * i}<br>`;
+        }
+        resultDiv.innerHTML = output;
+    }
+</script>
+
+</body>
+</html>
