@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Operations</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    .container {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">Number Operations</h1>
+
+    <!-- Reverse Number -->
+    <div class="mb-4">
+      <h3>1. Reverse a Number</h3>
+      <div class="input-group mb-3">
+        <input type="number" id="reverseInput" class="form-control" placeholder="Enter a number">
+        <button class="btn btn-primary" onclick="reverseNumber()">Reverse</button>
+      </div>
+      <p id="reverseResult" class="text-success"></p>
+    </div>
+
+    <!-- Print Odd Numbers -->
+    <div class="mb-4">
+      <h3>2. Odd Numbers in a Range</h3>
+      <div class="row mb-3">
+        <div class="col">
+          <input type="number" id="startRange" class="form-control" placeholder="Start Range">
+        </div>
+        <div class="col">
+          <input type="number" id="endRange" class="form-control" placeholder="End Range">
+        </div>
+        <div class="col">
+          <button class="btn btn-primary" onclick="printOddNumbers()">Print Odd Numbers</button>
+        </div>
+      </div>
+      <p id="oddResult" class="text-success"></p>
+    </div>
+
+    <!-- Neutralize to Single Digit -->
+    <div>
+      <h3>3. Neutralize Number to Single Digit</h3>
+      <div class="input-group mb-3">
+        <input type="number" id="neutralizeInput" class="form-control" placeholder="Enter a number">
+        <button class="btn btn-primary" onclick="neutralizeNumber()">Neutralize</button>
+      </div>
+      <p id="neutralizeResult" class="text-success"></p>
+    </div>
+  </div>
+  <script>
+    // Reverse a Number
+function reverseNumber() {
+  const num = document.getElementById('reverseInput').value;
+  if (num === '') {
+    alert('Please enter a number!');
+    return;
+  }
+  const reversed = num.split('').reverse().join('');
+  document.getElementById('reverseResult').innerText = `Reversed Number: ${reversed}`;
+}
+
+// Print Odd Numbers in a Range
+function printOddNumbers() {
+  const start = parseInt(document.getElementById('startRange').value);
+  const end = parseInt(document.getElementById('endRange').value);
+
+  if (isNaN(start) || isNaN(end)) {
+    alert('Please enter valid range values!');
+    return;
+  }
+  const oddNumbers = [];
+  for (let i = start; i <= end; i++) {
+    if (i % 2 !== 0) oddNumbers.push(i);
+  }
+  document.getElementById('oddResult').innerText = `Odd Numbers: ${oddNumbers.join(', ')}`;
+}
+
+// Neutralize Number to Single Digit
+function neutralizeNumber() {
+  let num = parseInt(document.getElementById('neutralizeInput').value);
+  if (isNaN(num)) {
+    alert('Please enter a valid number!');
+    return;
+  }
+
+  while (num > 9) {
+    num = num.toString().split('').reduce((sum, digit) => sum + parseInt(digit), 0);
+  }
+  document.getElementById('neutralizeResult').innerText = `Neutralized Number: ${num}`;
+}
+
+  </script>
+ 
+</body>
+</html>
