@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>Document</title>
+    <script src="./country.js"></script>
 </head>
 <body>
     <!-- <script>
@@ -25,6 +26,11 @@
     <script>
         function arrFunc(){
             let arr = [56,89,26,47,86,23,49,76,16];
+
+            // for(let idx=0;idx<arr.length;idx++){
+            //     console.log(arr(idx));
+            // }
+
             let arrResult = ""
             arrResult += "Array : "+ arr + "<br>";
             arrResult += "Length : "+ arr.length + "<br>";
@@ -70,22 +76,172 @@
             arrResult += "Array : "+ arr + "<br>";
 
             document.getElementById('arrResult').innerHTML=arrResult;
+
+             
         }
-        arrFunc();
+         
 
         function arrPush(arr,ele){
             arr[arr.length] = ele;
             console.log(arr);
             return arr.length;
         }
-        function arrPop(arr,ele){
-            arr[arr.pop()]=ele;
+        function arrPop(arr) {
+            const removedElement = arr.pop();
             console.log(arr);
-            return arr.pop();
+            return removedElement;
+        }
+        function arrIncludes(arr, ele) {
+             const exists = arr.includes(ele);
+             console.log(exists);
+             return exists;
+        }
+        function arrShift(arr) {
+             const removedElement = arr.shift();
+             console.log(arr);
+             return removedElement;
+        }
+        function arrUnShift(arr){
+            const removedElement=arr.unshift(89);
+            console.log(arr);
+            return removedElement;
+        }
+        function arrIndexOf(arr, ele) {
+            const index = arr.indexOf(ele);
+            console.log(index);
+            return index;
+        }
+        function arrLastIndexOf(arr, ele) {
+            const index = arr.lastIndexOf(ele);
+            console.log(index);
+            return index;
+        }
+        function arrReverse(arr) {
+            const reversedArray = arr.reverse();
+            console.log(reversedArray);
+            return reversedArray;
+        }
+        function arrJoin(arr){
+            const JoinArr=arr.join("-");
+            console.log(Joinarr);
+            return JoinArr;
+        }
+        function arrSort(arr) {
+            const sortedArray = arr.sort();
+            console.log(sortedArray);
+            return sortedArray;
+        }
+        function arrSlice(arr, start, end) {
+            const slicedArray = arr.slice(start, end);
+            console.log(slicedArray);
+            return slicedArray;
         }
 
 
+        function multArr(){
+            let arr2D=[[1,2,3],[4,5,6],[7,8,9],[0,2,5]];
+            for(let outer=0;outer<arr2D.length;outer++){
+                console.log(arr2D[outer]);
+                let tempArr=arr2D[outer];
+                for(let inner=0;inner<tempArr;inner++){
+                    console.log(tempArr[inner],arr2D[outer][inner]);
+                }
+            }
+            let arr3D=[[['A','B','C',],['e','r','u']],[['as','jt'],['qwe','uip']]];
+             console.log(arr3D.flat(1));//flat method using to decrease the  array dimensions
+        }
+        arrFunc();
+        multArr();
         console.log(arrPush([20,30,40,50], 80));
+        console.log(arrPop(arr));               
+        console.log(arrIncludes(arr, 3));       
+        console.log(arrShift(arr));             
+        console.log(arrUnshift(arr, 0));        
+        console.log(arrIndexOf(arr, 3));        
+        console.log(arrLastIndexOf(arr, 3));    
+        console.log(arrReverse(arr));           
+        console.log(arrSort(arr));              
+        console.log(arrSlice(arr, 1, 3));      
+        console.log(arrJoin(arr, '-')); 
     </script>
+
+    <div class="container mt-4 mb-4">
+        <h2> Set & Map</h2>
+            <p>
+                Array => [], Set => {}, Map => {k,v}
+            </p>
+            <p id="setMapResult"></p>
+            <p id="countryResult"></p>
+        <script>
+            function setMapEx(){
+
+                let arr = [ "Naveeth", "Sridhar", "Anbu", "Mari", "Sridhar"];
+                let result = "";
+
+                result += "Array :" + arr;
+
+                let setEx = new Set();
+                setEx.add("Naveeth");
+                setEx.add("Sridhar");
+                setEx.add("Anbu");
+                setEx.add("Mari");
+                setEx.add("Sridhar");
+                setEx.delete("Mari");
+                console.log(setEx.has("Sridhar"));
+                console.log(setEx.keys());
+                console.log(setEx.values());
+                console.log(setEx.entries());
+                console.log(setEx.size);
+                setEx.clear();
+                console.log(setEx);
+
+                result += "<br> Set : " + setEx.toString();
+
+                let mapEx = new Map();
+                mapEx.set("1001", "Naveeth");
+                mapEx.set("1002", "Sridhar");
+                mapEx.set("1003", "Anbu");
+                mapEx.set("1004", "Mari");
+                mapEx.set("1005","Sridhar");
+                mapEx.set("1003", "Anbuselvam");
+                console.log(mapEx.get("1005"));
+                console.log(mapEx.size);
+                console.log(mapEx.entries());
+                console.log(mapEx.keys());
+                console.log(mapEx.values());
+                //mapEx.clear();
+                console.log(mapEx);
+
+                console.log(arr);
+                console.log(setEx);
+                console.log(mapEx);
+
+
+
+                document.getElementById('setMapResult').innerHTML = result;
+            }
+
+            setMapEx();
+
+            function readCountry(){
+
+                console.log(countries);
+                for(let idx = 0; idx<countries.length; idx++){
+                    console.log(countries[idx].fullCountryName);
+                }
+
+                let countryResult = "";
+                for(let country of countries){
+                    countryResult += country.fullCountryName + "<br>";
+                }
+
+                countries.forEach((country) => { console.log(country.countryTelephonyCode)});
+
+                document.getElementById('countryResult').innerHTML = countryResult;
+            }
+
+            readCountry();
+        </script>
+    </div>
 </body>
 </html>

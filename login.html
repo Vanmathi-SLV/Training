@@ -12,7 +12,7 @@
         3. External CSS
     -->
     <div>
-kldjsghkjdfbgj
+
 <p class="box">dkjfbgdkj</p>
 <div style="margin-left:200px;">
     <div id="div1"><img src="./assets/biriyani.jpeg">Div1</div>
@@ -41,8 +41,23 @@ kldjsghkjdfbgj
             <label>Password</label>
             <input type="password" id="pswd" name="pswd"/>
             <br>
-            <button type="button" id="lgBtn">Login</button>
+            <button type="button" id="lgBtn" onclick="validateLogin()">Login</button>
+            <br>
+            <p id="lgMsg"></p>
         </div>
+        <script>
+            function validateLogin(){
+                let user = document.getElementById('user').value;
+                let pswd = document.getElementById('pswd').value;
+
+                if(user == "Admin" && pswd == "1234"){
+                    localStorage.setItem('User', 'Admin');
+                    window.location.href = "./ParkingEx.html";
+                }else{
+                    document.getElementById('lgMsg').innerHTML = "Invalid Username /Password";
+                }
+            }
+        </script>
         
     </div>
     <style>
